@@ -7,16 +7,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.palette.graphics.Palette
 import com.codemeric.musicplayer.R
-import com.codemeric.musicplayer.data.repo.AudioRepository
 import com.codemeric.musicplayer.databinding.FragmentPlaybackBinding
-import com.codemeric.musicplayer.domain.usecase.GetAudioFilesUseCase
 import com.codemeric.musicplayer.ui.equalizer.EqualizerActivity
 import com.codemeric.musicplayer.util.TimeFormatter
-import kotlinx.coroutines.launch
 
 class PlaybackFragment :
     Fragment(R.layout.fragment_playback) {

@@ -1,6 +1,5 @@
 package com.codemeric.musicplayer.ui.playback
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codemeric.musicplayer.data.model.AudioFile
@@ -12,6 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+
 class PlaybackViewModel(
     private val getAudioFilesUseCase: GetAudioFilesUseCase,
     private val playAudioUseCase: PlayAudioUseCase,
@@ -64,7 +64,6 @@ class PlaybackViewModel(
 
         playAudioUseCase(audioFile.assetPath)
     }
-    
 
 
     fun togglePlayback() {

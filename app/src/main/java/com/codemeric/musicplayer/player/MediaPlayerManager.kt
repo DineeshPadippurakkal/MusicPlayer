@@ -14,6 +14,7 @@ class MediaPlayerManager(private val context: Context) {
 
     val isPlaying: Boolean
         get() = mediaPlayer?.isPlaying == true
+
     fun play(assetPath: String) {
 
         mediaPlayer?.setOnCompletionListener(null)
