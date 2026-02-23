@@ -1,0 +1,11 @@
+package com.codemeric.musicplayer.util
+
+object TimeFormatter {
+
+    fun format(milliseconds: Int): String {
+        val seconds = milliseconds / 1000
+        val minutes = seconds / 60
+        val remainingSeconds = seconds % 60
+        return String.format("%02d:%02d", minutes, remainingSeconds)
+    }
+}
