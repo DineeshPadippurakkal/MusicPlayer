@@ -71,17 +71,12 @@ class PlaybackViewModel(
         if (mediaPlayerManager.isPlaying) {
             mediaPlayerManager.pause()
         } else {
-
             if (!mediaPlayerManager.isInitialized()) {
-                _uiState.value.currentAudio?.let {
-                    play(it)
-                }
+                _uiState.value.currentAudio?.let { play(it) }
             } else {
                 mediaPlayerManager.resume()
-                _uiState.value = _uiState.value.copy(isPlaying = true)
             }
         }
-
     }
 
     fun playNext() {
@@ -118,14 +113,13 @@ class PlaybackViewModel(
     private fun startProgressUpdates() {
         viewModelScope.launch {
             while (true) {
-                delay(1000)
+                delay(500)
 
-                if (mediaPlayerManager.isPlaying) {
-                    _uiState.value = _uiState.value.copy(
-                        progress = mediaPlayerManager.getCurrentPosition(),
-                        duration = mediaPlayerManager.getDuration()
-                    )
-                }
+                _uiState.value = _uiState.value.copy(
+                    progress = mediaPlayerManager.getCurrentPosition(),
+                    duration = mediaPlayerManager.getDuration(),
+                    isPlaying = mediaPlayerManager.isPlaying
+                )
             }
         }
     }
